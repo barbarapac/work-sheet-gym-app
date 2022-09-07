@@ -6,7 +6,7 @@ class App extends Component {
   render(){
     return(
       <View style={styles.container}>
-          <LoginApp></LoginApp>
+          <LoginApp/>
       </View>    
     );  
   }
@@ -16,7 +16,6 @@ export default App;
 
 const styles = StyleSheet.create({
   container: {
-    padding:30,
     flex: 1,
     backgroundColor: '#fff',
   }

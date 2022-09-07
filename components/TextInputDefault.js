@@ -30,8 +30,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderBottomWidth: 1,
     borderColor: '#3c78d8',
-    padding: 5,
-    marginBottom: 30
+    marginBottom: 30,
   },
   imageStyle: {
     padding: 5,
@@ -43,7 +42,9 @@ const styles = StyleSheet.create({
   input:{
     fontSize: 20,
     flex: 1,
-    color: '#3c78d8'
+    color: '#3c78d8',
+    paddingBottom: 10,
+    paddingLeft: 10
   }
 });
 

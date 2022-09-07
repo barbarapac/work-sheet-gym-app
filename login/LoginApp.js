@@ -1,34 +1,47 @@
 import React, { Component } from 'react';
-import { SafeAreaView, StyleSheet, Button, View } from 'react-native';
+import { Text, StyleSheet, Button, View } from 'react-native';
 import TextInputDefault from '../components/TextInputDefault';
-import PersonIcon from '../images/iconPerson.png'
+import PersonIcon from '../images/iconPerson.png';
+import EmailIcon from '../images/iconEmail.png';
+import PassIcon from '../images/iconPass.png';
 
 class LoginApp extends Component{
     render(){
         return(
-            <SafeAreaView style={{flex: 1}}>
-                <View style={styles.container}>
-                    <TextInputDefault sourceIcon={PersonIcon} textoTransparente={'Nome'}/>
-                    <TextInputDefault sourceIcon={PersonIcon} textoTransparente={'E-mail'}/>
-                    <TextInputDefault sourceIcon={PersonIcon} textoTransparente={'Senha'}/>        
-
-                    <Button title='CONTINUE' color={'#3c78d8'} style={styles.botao}/>
+            <View style={styles.container}>
+                <View style={styles.content}>
+                    <View style={{padding: 30}}>
+                        <TextInputDefault sourceIcon={PersonIcon} textoTransparente={'Nome'}/>
+                        <TextInputDefault sourceIcon={EmailIcon} textoTransparente={'E-mail'}/>
+                        <TextInputDefault sourceIcon={PassIcon} textoTransparente={'Senha'}/>  
+                        {/* questionar prof porque não ta pegando o stilo do botão */}
+                        <Button title='CONTINUE' color={'#3c78d8'}/>      
+                    </View>
+                </View>            
+                <View style={styles.footer}>
+                    <Button title='LOGIN' color={'#6495ED'} />      
                 </View>
-            </SafeAreaView>
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        margin: 1,
-        marginTop: 150
+    container:{
+        flex: 1
     },
     botao:{
-        textAlign: 'center',        
-        height: 25,
-        width: 25
+        textAlign: 'center',
+        fontSize: 100
+        // ver como trocar cor do botão
+    },
+    content:{
+        flex: 1,
+        justifyContent: 'space-around', // flex-start(default), flex-end, center, space-beteween
+    },
+    footer:{
+        backgroundColor: 'red',
+        justifyContent: 'center'
     }
   });
 
