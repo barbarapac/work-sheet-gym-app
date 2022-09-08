@@ -30,14 +30,14 @@ const styles = StyleSheet.create({
     height: 50,
     borderBottomWidth: 1,
     borderColor: '#3c78d8',
-    marginBottom: 30,
+    marginBottom: 30
   },
   imageStyle: {
     padding: 5,
     margin: 5,
     height: 25,
     width: 25,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   input:{
     fontSize: 20,
