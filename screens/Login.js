@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Button, View, Text, TouchableOpacity } from 'react-native';
+import TextDefault from '../components/TextDefault';
 import TextInputDefault from '../components/TextInputDefault';
 import EmailIcon from '../images/iconEmail.png';
 import PassIcon from '../images/iconPass.png';
@@ -15,8 +16,8 @@ export default function Login({navigation}){
     return(
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={{fontSize: 25, color: "#666666"}}>Olá, acesse sua conta!</Text>
-                <Text style={{fontSize: 16, color: "#666666"}}>Primeira vez aqui? Crie sua conta</Text>
+                <TextDefault texto={'Olá, acesse sua conta!'} tamanho={27}/>
+                <TextDefault texto={'Primeira vez aqui? Crie sua conta'} tamanho={17}/>
             </View>
             <View style={styles.content}>
                 <View style={{padding: 30}}>
