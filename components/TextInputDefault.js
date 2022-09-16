@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 50,
     borderBottomWidth: 1,
-    borderColor: '#3c78d8',
+    borderColor: '#666666',
     marginBottom: 30
   },
   imageStyle: {
@@ -41,8 +41,9 @@ const styles = StyleSheet.create({
   },
   input:{
     fontSize: 20,
+    // fontFamily: 'Montserrat-Light',
     flex: 1,
-    color: '#3c78d8',
+    color: '#666666',
     paddingBottom: 10,
     paddingLeft: 10
   }

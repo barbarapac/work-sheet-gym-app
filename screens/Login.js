@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Button, View } from 'react-native';
+import { StyleSheet, Button, View, Text, TouchableOpacity } from 'react-native';
 import TextInputDefault from '../components/TextInputDefault';
-import PersonIcon from '../images/iconPerson.png';
 import EmailIcon from '../images/iconEmail.png';
 import PassIcon from '../images/iconPass.png';
 
@@ -15,37 +14,55 @@ export default function Login({navigation}){
     
     return(
         <View style={styles.container}>
+            <View style={styles.header}>
+                <Text style={{fontSize: 25, color: "#666666"}}>Olá, acesse sua conta!</Text>
+                <Text style={{fontSize: 16, color: "#666666"}}>Primeira vez aqui? Crie sua conta</Text>
+            </View>
             <View style={styles.content}>
                 <View style={{padding: 30}}>
-                    <TextInputDefault sourceIcon={PersonIcon} textoTransparente={'Nome'}/>
                     <TextInputDefault sourceIcon={EmailIcon} textoTransparente={'E-mail'}/>
                     <TextInputDefault sourceIcon={PassIcon} textoTransparente={'Senha'}/>  
-                    {/* questionar prof porque não ta pegando o stilo do botão */}
-                    <Button title='LOGIN' color={'#3c78d8'} onPress={() => entrar()}/>      
+                    <TouchableOpacity style={styles.buttonLogIn} onPress={() => entrar()}>
+                        <Text style={{color: "#fff"}}>ENTRAR</Text>
+                    </TouchableOpacity> 
                 </View>
             </View>            
-            {/* <View style={styles.footer}>
-                <Button title='LOGIN' color={'#6495ED'} />      
-            </View> */}
+            <View style={styles.footer}>
+                <TouchableOpacity style={styles.buttonFooter} onPress={() => entrar()}>                    
+                    <Text style={{color: "#8A2BE2", fontSize: 20}}>CRIAR CONTA</Text>
+                </TouchableOpacity> 
+            </View>
         </View>
     )
 };
 
 const styles = StyleSheet.create({
+    header:{
+        flex: 1, 
+        paddingLeft: 30, 
+        paddingTop: 200,
+    },
     container:{
-        flex: 1
-    },
-    botao:{
-        textAlign: 'center',
-        fontSize: 100
-    },
-    content:{
         flex: 1,
-        justifyContent: 'space-around', 
+        backgroundColor: "#fff"
+    },
+    buttonLogIn: {
+        alignItems: "center",
+        backgroundColor: "#8A2BE2",
+        padding: 10
+      },
+    content:{
+        flex: 5,
+        // justifyContent: 'space-around', deixa tudo alinhado no centro com o mesmo espaço 
+        justifyContent: 'flex-start'
     },
     footer:{
-        backgroundColor: 'red',
-        justifyContent: 'center'
+        justifyContent: 'center',
+    },
+    buttonFooter: {
+        alignItems: "center",
+        backgroundColor: "#fff",
+        padding: 10
     }
   });
 
