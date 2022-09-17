@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Button, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import TextDefault from '../components/TextDefault';
 import TextInputDefault from '../components/TextInputDefault';
 import EmailIcon from '../images/iconEmail.png';
@@ -24,10 +24,23 @@ export default function Login({navigation}){
                     <TextInputDefault sourceIcon={EmailIcon} textoTransparente={'E-mail'}/>
                     <TextInputDefault sourceIcon={PassIcon} textoTransparente={'Senha'}/>  
                     <TouchableOpacity style={styles.buttonLogIn} onPress={() => entrar()}>
-                        <Text style={{color: "#fff"}}>ENTRAR</Text>
+                        <Text style={{color: "#fff", fontSize: 18}}>ENTRAR</Text>
                     </TouchableOpacity> 
                 </View>
-            </View>            
+            </View>       
+
+            <View style={{flexDirection: 'row', justifyContent: 'space-around', paddingBottom:90, padding: 50}}>
+                <TouchableOpacity style={styles.buttonSocialLogin}>
+                    <Image source={require('../images/iconFacebook.png')} style={styles.buttonImageIconStyle} /> 
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.buttonSocialLogin}>
+                    <Image source={require('../images/iconTwitter.png')} style={styles.buttonImageIconStyle} /> 
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.buttonSocialLogin}>
+                    <Image source={require('../images/iconGoogle.png')} style={styles.buttonImageIconStyle} /> 
+                </TouchableOpacity>
+            </View>
+
             <View style={styles.footer}>
                 <TouchableOpacity style={styles.buttonFooter} onPress={() => entrar()}>                    
                     <Text style={{color: "#8A2BE2", fontSize: 20}}>CRIAR CONTA</Text>
@@ -42,6 +55,7 @@ const styles = StyleSheet.create({
         flex: 1, 
         paddingLeft: 30, 
         paddingTop: 200,
+        paddingBottom: 25
     },
     container:{
         flex: 1,
@@ -54,7 +68,6 @@ const styles = StyleSheet.create({
       },
     content:{
         flex: 5,
-        // justifyContent: 'space-around', deixa tudo alinhado no centro com o mesmo espaço 
         justifyContent: 'flex-start'
     },
     footer:{
@@ -64,6 +77,20 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "#fff",
         padding: 10
+    },
+    buttonSocialLogin:{
+        borderWidth:1,
+        borderColor:'#FF7F00',
+        alignItems:'center',
+        justifyContent:'center',
+        width:70,
+        height:70,
+        backgroundColor:'#fff',
+        borderRadius:50
+    },
+    buttonImageIconStyle:{
+        width: 30,
+        height: 23
     }
   });
 
