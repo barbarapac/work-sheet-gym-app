@@ -26,6 +26,7 @@ function MyTabs() {
         name="Workout"
         component={Workout}
         options={{
+          headerShown: false,
           tabBarLabel: 'Página Inicial',
           tabBarLabelStyle:{fontSize: 16, paddingBottom: 10},
           tabBarIcon: ({ color, size }) => (
@@ -37,6 +38,7 @@ function MyTabs() {
         name="AvaliationDescription"
         component={AvaliationDescription}
         options={{
+          headerShown: false,
           tabBarLabel: 'Avaliações',
           tabBarLabelStyle:{fontSize: 16, paddingBottom: 10},
           tabBarIcon: ({ color, size }) => (
@@ -48,6 +50,7 @@ function MyTabs() {
         name="Settings"
         component={Settings}
         options={{
+          headerShown: false,
           tabBarLabel: 'Configurações',
           tabBarLabelStyle:{fontSize: 16, paddingBottom: 10},
           tabBarIcon: ({ color, size }) => (
