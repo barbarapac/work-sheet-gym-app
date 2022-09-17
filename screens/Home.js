@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import AvaliationDescription from '../screens/AvaliationDescription';
+import Avaliation from '../screens/Avaliation';
 import Settings from '../screens/Settings';
 import Workout from '../screens/Workout';
 import { NavigationContainer } from '@react-navigation/native';
@@ -35,10 +34,12 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="AvaliationDescription"
-        component={AvaliationDescription}
+        name="Avaliações"
+        component={Avaliation}
         options={{
-          headerShown: false,
+          headerStyle:{backgroundColor: "#8A2BE2"},
+          headerTitleStyle:{fontSize: 25, color:"#fff"},
+          headerTitleAlign:'center',
           tabBarLabel: 'Avaliações',
           tabBarLabelStyle:{fontSize: 16, paddingBottom: 10},
           tabBarIcon: ({ color, size }) => (

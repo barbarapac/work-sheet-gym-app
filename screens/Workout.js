@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 import TextDefault from '../components/TextDefault';
 import ListaTreino from '../components/ListaTreino';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import iconPosteriores from '../images/iconPosteriores.png';
 import iconSuperiores from '../images/iconSuperiores.png';
 
@@ -19,14 +18,14 @@ class Workout extends Component{
                     </View>
                 </View>
                 <View style={styles.contentList}>
-                <FlatList
-                    data={[
-                    {key: '1', name: 'TREINO A', tipo: 'Posterior',  detalhes: 'Posterior | glúteos', sourceIcon: iconPosteriores },
-                    {key: '2', name: 'TREINO B', tipo: 'Superiores', detalhes: 'Costas | peito | abdômen', sourceIcon: iconSuperiores},
-                    {key: '3', name: 'TREINO A', tipo: 'Posterior',  detalhes: 'Posterior | glúteos', sourceIcon: iconPosteriores},
-                    {key: '4', name: 'TREINO B', tipo: 'Superiores', detalhes: 'Costas | peito | abdômen', sourceIcon: iconSuperiores}]}
-                    renderItem={({item}) => <ListaTreino data={item}/>}
-                />
+                    <FlatList
+                        data={[
+                        {key: '1', name: 'TREINO A', tipo: 'Posterior',  detalhes: 'Posterior | glúteos', sourceIcon: iconPosteriores },
+                        {key: '2', name: 'TREINO B', tipo: 'Superiores', detalhes: 'Costas | peito | abdômen', sourceIcon: iconSuperiores},
+                        {key: '3', name: 'TREINO A', tipo: 'Posterior',  detalhes: 'Posterior | glúteos', sourceIcon: iconPosteriores},
+                        {key: '4', name: 'TREINO B', tipo: 'Superiores', detalhes: 'Costas | peito | abdômen', sourceIcon: iconSuperiores}]}
+                        renderItem={({item}) => <ListaTreino data={item}/>}
+                    />
                 </View>       
             </View>
         );
