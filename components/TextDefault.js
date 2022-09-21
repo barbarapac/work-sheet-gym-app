@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { Text, TouchableWithoutFeedbackComponent, View} from "react-native";
 
-class TextDefault extends Component{
-  render(){
+const TextDefault = ({tamanho,paddingTop, texto, fontWeight, textDecorationStyle, color}) => {
     return(
       <View>
-        <Text style={{fontSize: this.props.tamanho, color: "#666666", paddingTop: this.props.paddingTop}}>{this.props.texto}</Text>
+        <Text style={{fontSize: tamanho, color: color, paddingTop: paddingTop, fontWeight: fontWeight, textDecorationLine: textDecorationStyle}}>{texto}</Text>
       </View>
     );
   }
-}
+
 
 export default TextDefault;
