@@ -13,6 +13,10 @@ export default function Login({navigation}){
         })
     }
     
+    const criarConta = () => {
+        navigation.navigate('CreateAccount')
+    }
+
     return(
         <View style={styles.container}>
             <View style={styles.header}>
@@ -42,7 +46,7 @@ export default function Login({navigation}){
             </View>
 
             <View style={styles.footer}>
-                <TouchableOpacity style={styles.buttonFooter} onPress={() => entrar()}>                    
+                <TouchableOpacity style={styles.buttonFooter} onPress={() => criarConta()}>                    
                     <Text style={{color: "#8A2BE2", fontSize: 20}}>CRIAR CONTA</Text>
                 </TouchableOpacity> 
             </View>

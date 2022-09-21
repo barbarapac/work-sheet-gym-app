@@ -6,7 +6,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
@@ -64,7 +63,6 @@ function MyTabs() {
     </Tab.Navigator>
   );
 }
-
 
 class Home extends Component{
     render(){
