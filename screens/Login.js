@@ -4,6 +4,7 @@ import TextDefault from '../components/TextDefault';
 import TextInputDefault from '../components/TextInputDefault';
 import EmailIcon from '../images/iconEmail.png';
 import PassIcon from '../images/iconPass.png';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Login({navigation}){
     const entrar = () => {
@@ -20,19 +21,18 @@ export default function Login({navigation}){
     return(
         <View style={styles.container}>
             <View style={styles.header}>
-                <TextDefault texto={'Olá, acesse sua conta!'} tamanho={27}/>
-                <TextDefault texto={'Primeira vez aqui? Crie sua conta'} tamanho={17}/>
+                <TextDefault texto={'Olá, acesse sua conta!'} tamanho={27} fontWeight={'400'} color={'#1F1F1F'}/>
+                <TextDefault texto={'Primeira vez aqui? Crie sua conta'} tamanho={18} paddingTop={10} textDecorationStyle={'underline'} color={'#696969'}/>
             </View>
             <View style={styles.content}>
                 <View style={{padding: 30}}>
-                    <TextInputDefault sourceIcon={EmailIcon} textoTransparente={'E-mail'}/>
-                    <TextInputDefault sourceIcon={PassIcon} textoTransparente={'Senha'}/>  
+                    <TextInputDefault iconName={'email'} textoTransparente={'E-mail'} value={'email'}/>
+                    <TextInputDefault iconName={'lock'} textoTransparente={'Senha'} secureTextEntry={true}/>  
                     <TouchableOpacity style={styles.buttonLogIn} onPress={() => entrar()}>
-                        <Text style={{color: "#fff", fontSize: 18}}>ENTRAR</Text>
+                        <Text style={{color: "#fff", fontSize: 18 }}>ENTRAR</Text>
                     </TouchableOpacity> 
                 </View>
             </View>       
-
             <View style={{flexDirection: 'row', justifyContent: 'space-around', paddingBottom:90, padding: 50}}>
                 <TouchableOpacity style={styles.buttonSocialLogin}>
                     <Image source={require('../images/iconFacebook.png')} style={styles.buttonImageIconStyle} /> 
@@ -43,11 +43,12 @@ export default function Login({navigation}){
                 <TouchableOpacity style={styles.buttonSocialLogin}>
                     <Image source={require('../images/iconGoogle.png')} style={styles.buttonImageIconStyle} /> 
                 </TouchableOpacity>
+                
             </View>
 
             <View style={styles.footer}>
                 <TouchableOpacity style={styles.buttonFooter} onPress={() => criarConta()}>                    
-                    <Text style={{color: "#8A2BE2", fontSize: 20}}>CRIAR CONTA</Text>
+                    <Text style={{color: "#8A2BE2", fontSize: 20, fontWeight: 'bold'}}>CRIAR CONTA</Text>
                 </TouchableOpacity> 
             </View>
         </View>
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     header:{
         flex: 1, 
         paddingLeft: 30, 
-        paddingTop: 200,
+        paddingTop: 150,
         paddingBottom: 25
     },
     container:{
@@ -68,10 +69,10 @@ const styles = StyleSheet.create({
     buttonLogIn: {
         alignItems: "center",
         backgroundColor: "#8A2BE2",
-        padding: 10
+        padding: 10,
+        borderRadius: 4,
       },
     content:{
-        flex: 5,
         justifyContent: 'flex-start'
     },
     footer:{
@@ -89,12 +90,13 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         width:70,
         height:70,
-        backgroundColor:'#fff',
+        backgroundColor:'#FFFFFF',
         borderRadius:50
     },
     buttonImageIconStyle:{
         width: 30,
-        height: 23
+        height: 23,
+        backgroundColor: 'black',
     }
   });
 
