@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 class Settings extends Component{
@@ -7,36 +7,28 @@ class Settings extends Component{
         return(
             <View>
                 <View style={styles.container}>
-                    <View style={styles.content}>
-                       <View style={styles.viewIcon}>
-                          <MaterialCommunityIcons name="account" color={'#FF9900'} size={35} />
+                    <TouchableOpacity style={styles.content}>
+                        <View style={styles.viewIcon}>
+                            <MaterialCommunityIcons name="account" color={'#FF9900'} size={35} />
                         </View>
                         <Text style={styles.itemName}>Meu perfil</Text>
-                    </View>
+                    </TouchableOpacity>    
                 </View>
                 <View style={styles.container}>
-                    <View style={styles.content}>
-                       <View style={styles.viewIcon}>
-                          <MaterialCommunityIcons name="bell" color={'#FF9900'} size={35} />
-                        </View>
-                        <Text style={styles.itemName}>Notificações</Text>
-                    </View>
-                </View>
-                <View style={styles.container}>
-                    <View style={styles.content}>
-                       <View style={styles.viewIcon}>
+                    <TouchableOpacity style={styles.content}>
+                        <View style={styles.viewIcon}>
                           <MaterialCommunityIcons name="help-circle" color={'#FF9900'} size={35} />
                         </View>
-                        <Text style={styles.itemName}>Sobre</Text>
-                    </View>
+                        <Text style={styles.itemName}>Meu Sobre</Text>
+                    </TouchableOpacity>    
                 </View>
                 <View style={styles.container}>
-                    <View style={styles.content}>
-                       <View style={styles.viewIcon}>
-                          <MaterialCommunityIcons name="home-export-outline" color={'#FF9900'} size={35} />
+                    <TouchableOpacity style={styles.content}>
+                        <View style={styles.viewIcon}>
+                            <MaterialCommunityIcons name="home-export-outline" color={'#FF9900'} size={35} />
                         </View>
                         <Text style={styles.itemName}>Sair</Text>
-                    </View>
+                    </TouchableOpacity>    
                 </View>
             </View>
             
