@@ -1,29 +1,48 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View  } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
 
-class Settings extends Component{
-    render(){
-        return(
-            <View>
+export default function Settings({navigation}){
+    const meuPerfil = () => {
+        navigation.navigate('Perfil');
+    }
+
+    const sobreOSistema = () => {
+        navigation.navigate('Sobre');
+    }
+
+    const sair = (navigation) => {
+        navigation.reset({
+            index:0,
+            routes: [{name: "Login"}]
+        })
+    }
+
+    return(
+        <NavigationContainer independent={true}>
+            <View style={{marginTop: 55}}>    
+                <View style={{alignItems:'center'}}>
+                    <Text style={{fontSize:25, marginBottom: 20}}>Configurações</Text>            
+                </View>
                 <View style={styles.container}>
-                    <TouchableOpacity style={styles.content}>
-                        <View style={styles.viewIcon}>
+                    <TouchableOpacity style={styles.content} onPress={() => meuPerfil()}>
+                        <View style={styles.viewIcon}> 
                             <MaterialCommunityIcons name="account" color={'#FF9900'} size={35} />
                         </View>
                         <Text style={styles.itemName}>Meu perfil</Text>
                     </TouchableOpacity>    
                 </View>
                 <View style={styles.container}>
-                    <TouchableOpacity style={styles.content}>
+                    <TouchableOpacity style={styles.content} onPress={() => sobreOSistema()}>
                         <View style={styles.viewIcon}>
-                          <MaterialCommunityIcons name="help-circle" color={'#FF9900'} size={35} />
+                            <MaterialCommunityIcons name="help-circle" color={'#FF9900'} size={35} />
                         </View>
-                        <Text style={styles.itemName}>Meu Sobre</Text>
+                        <Text style={styles.itemName}>Sobre</Text>
                     </TouchableOpacity>    
                 </View>
                 <View style={styles.container}>
-                    <TouchableOpacity style={styles.content}>
+                    <TouchableOpacity style={styles.content} onPress={() => sair(navigation)}>
                         <View style={styles.viewIcon}>
                             <MaterialCommunityIcons name="home-export-outline" color={'#FF9900'} size={35} />
                         </View>
@@ -31,13 +50,9 @@ class Settings extends Component{
                     </TouchableOpacity>    
                 </View>
             </View>
-            
-        );
-    }
+        </NavigationContainer>            
+    );
 }
-
-export default Settings;
-
 
 const styles = StyleSheet.create({
     container: {

@@ -1,13 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-const ListaAvaliacao = ({data}) => {
+const ListaAvaliacao = ({data, navigation}) => {
+    const descricao = () => {
+      navigation.navigate('AvaliationDescription')
+    }
+
     return (
         <View style={styles.container}>
-            <View style={{flexDirection: 'row'}}>
+            <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => descricao()}>
               <Text style={styles.itemName}>{data.name}</Text>
               <Text style={styles.itemData}>{data.data}</Text>
-            </View>
+            </TouchableOpacity>
         </View>
     );
 };

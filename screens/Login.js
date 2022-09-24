@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import TextDefault from '../components/TextDefault';
 import TextInputDefault from '../components/TextInputDefault';
-import EmailIcon from '../images/iconEmail.png';
-import PassIcon from '../images/iconPass.png';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Login({navigation}){
     const entrar = () => {

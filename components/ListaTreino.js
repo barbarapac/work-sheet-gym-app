@@ -1,10 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
-const ListaTreino = ({data}) => {
-    return (
-        <View style={styles.container}>
-            <View style={{flexDirection: 'row'}}>
+const ListaTreino = ({data, navigation}) => {
+  const descricao = () => {
+    navigation.navigate('WorkoutDescription')
+  }
+
+  return (
+      <View style={styles.container}>
+        <TouchableOpacity onPress={() => descricao()}>
+          <View style={{flexDirection: 'row'}}>
               <Text style={styles.itemName}>{data.name}</Text>
               <Text style={styles.itemSaibaMais}>Saiba mais</Text>
             </View>
@@ -18,8 +23,9 @@ const ListaTreino = ({data}) => {
                 <Text style={styles.itemTipoDetalhe}>{data.detalhes}</Text>
               </View>              
             </View>
-        </View>
-    );
+          </TouchableOpacity>
+      </View>
+  );
 };
 
 export default ListaTreino;

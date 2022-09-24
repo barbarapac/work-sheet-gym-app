@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Avaliation from '../screens/Avaliation';
-import Settings from '../screens/Settings';
-import Workout from '../screens/Workout';
+import Avaliation from '../screens/Avaliations/AvaliationNavigator';
+import Settings from '../screens/Settings/SettingsNavigator';
+import Workout from '../screens/Workouts/WorkoutNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -36,6 +36,7 @@ function MyTabs() {
           name="Avaliações"
           component={Avaliation}
           options={{
+            headerShown: false,
             headerStyle:{backgroundColor: "#8A2BE2"},
             headerTitleStyle:{fontSize: 25, color:"#fff"},
             headerTitleAlign:'center',
@@ -50,6 +51,7 @@ function MyTabs() {
           name="Configurações"
           component={Settings}
           options={{       
+            headerShown: false,
             headerStyle:{backgroundColor: "#fff"},   
             headerTitleStyle:{fontSize: 25},
             headerTitleAlign:'center',
@@ -68,7 +70,7 @@ class Home extends Component{
     render(){
         return(
             <NavigationContainer independent={true}>
-                <MyTabs />
+                <MyTabs/>
             </NavigationContainer>
         );
     }
