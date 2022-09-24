@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Perfil from './Perfil';
 import Settings from './Settings';
 import Sobre from './Abount';
+import Politica from './Politica';
 
 const Stack = createStackNavigator();
 
@@ -25,7 +26,15 @@ function MyStack(){
             headerTitle: 'SOBRE',
             headerTitleStyle:{fontSize: 20},
             headerTitleAlign:'center'
-          }}/>
+          }}/>        
+          <Stack.Screen name='Politica'component={Politica} 
+            options={{
+              headerShown: true,
+              headerTitle: 'POLÍTICA DE PRIVACIDADE',
+              headerStyle:{backgroundColor: "#8A2BE2"},
+              headerTitleStyle:{fontSize: 20, color:"#fff"},
+              headerTitleAlign:'center'
+            }}/>
       </Stack.Navigator>
     );
   }
