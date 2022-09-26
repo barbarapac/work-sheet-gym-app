@@ -13,7 +13,7 @@ function MyStack(){
     <Stack.Navigator style={styles.container} initialRouteName='Login'>
       <Stack.Screen name='Login' component={Login} options={{ headerShown: false }}/>
       <Stack.Screen name='Home'component={Home} options={{headerShown: false}}/>
-      <Stack.Screen name='CreateAccount'component={CreateAccount} options={{headerShown: true}}/>
+      <Stack.Screen name='CreateAccount'component={CreateAccount} options={{headerShown: false}}/>
     </Stack.Navigator>
   );
 }

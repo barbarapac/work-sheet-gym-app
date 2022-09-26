@@ -9,7 +9,7 @@ const TextInputDefault = ({iconName, textoTransparente, secureTextEntry = false,
         <Icon.Button
           name={iconName}
           backgroundColor="transparent"
-          color="#616161"
+          color="#474747"
           />
         <TextInput
           secureTextEntry={secureTextEntry}
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     flex: 1,
     color: '#474747',
     paddingBottom: 10,
-    paddingLeft: 10
+    paddingLeft: 10,
   }
 });
 
