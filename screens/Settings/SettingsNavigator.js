@@ -6,6 +6,7 @@ import Perfil from './Perfil';
 import Settings from './Settings';
 import Sobre from './Abount';
 import Politica from './Politica';
+import Login from '../../screens/Login';
 
 const Stack = createStackNavigator();
 
@@ -34,7 +35,8 @@ function MyStack(){
               headerStyle:{backgroundColor: "#8A2BE2"},
               headerTitleStyle:{fontSize: 20, color:"#fff"},
               headerTitleAlign:'center'
-            }}/>
+            }}/>          
+            <Stack.Screen name='Login'component={Login}/>
       </Stack.Navigator>
     );
   }

@@ -42,7 +42,8 @@ export default function Settings({navigation}){
                     </TouchableOpacity>    
                 </View>
                 <View style={styles.container}>
-                    <TouchableOpacity style={styles.content} onPress={() => sair(navigation)}>
+                    <TouchableOpacity style={styles.content} //onPress={() => sair(navigation)}
+                    >
                         <View style={styles.viewIcon}>
                             <MaterialCommunityIcons name="home-export-outline" color={'#FF9900'} size={35} />
                         </View>
