@@ -1,7 +1,7 @@
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native'
-import PieChart from 'react-native-pie-chart';
+// import PieChart from 'react-native-pie-chart';
 
-const AvaliationDescription = () => {
+export default function AvaliationDescription(){
   const dados = {key: '1', data: "05/05/2022", peso: '75kg', estatura: '169cm', idade: '24 anos', ombro: '102,3cm', cintura: '72cm', torax: '80cm', abdomen: '74,5cm', quadril: '94cm',
      bracoEsquerdo: '32,4cm', bracoDireito: '32,4cm', coxaEsquerda: '56,7', coxaDireita: '56,7', tricipital: '19mm', abdominal: '13,5mm', axilarMedia:'8,5mm', 
     peitoral:'4,5mm', subEscapular: '10,5mm', supraLiaca: '9,5mm', coxa:'23mm', massaMagra: '76,6%', massaGorda: '23,4%'}
@@ -60,7 +60,7 @@ const AvaliationDescription = () => {
   )
 }
 
-export default AvaliationDescription 
+// export default AvaliationDescription 
 
 const styles = StyleSheet.create({
   texto: {
