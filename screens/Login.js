@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import TextDefault from '../components/TextDefault';
 import TextInputDefault from '../components/TextInputDefault';
+import firebase from '../src/firebaseConfig';
 
 export default function Login({navigation}){
     const entrar = () => {

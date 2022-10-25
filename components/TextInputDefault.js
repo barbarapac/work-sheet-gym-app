@@ -3,7 +3,7 @@ import { StyleSheet, TextInput, Image, View} from "react-native";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-const TextInputDefault = ({iconName, textoTransparente, secureTextEntry = false, tipoCampo}) => {
+const TextInputDefault = ({iconName, textoTransparente, secureTextEntry = false, tipoCampo, value, texto}) => {
     return(
       <View style={styles.sectionStyle}>
         <Icon.Button
@@ -17,7 +17,7 @@ const TextInputDefault = ({iconName, textoTransparente, secureTextEntry = false,
           placeholder={textoTransparente}
           keyboardType={tipoCampo}
           underlineColorAndroid="transparent"
-        />
+        >{value}</TextInput>
       </View>
     );
   }
