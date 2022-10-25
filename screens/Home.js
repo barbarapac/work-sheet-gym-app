@@ -8,6 +8,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
+//onPress={() => navigation.jumpTo('Profile', { owner: 'Michaś' })}
+
 function MyTabs() {
   return (
     <Tab.Navigator

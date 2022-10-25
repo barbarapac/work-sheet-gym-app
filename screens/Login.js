@@ -1,11 +1,25 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity, Image, TextInput } from 'react-native';
 import TextDefault from '../components/TextDefault';
-import TextInputDefault from '../components/TextInputDefault';
 import firebase from '../src/firebaseConfig';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function Login({navigation}){
-    const entrar = () => {
+
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
+    function logar(){
+        
+        firebase.auth().signInWithEmailAndPassword(email, senha)
+        .then((value) => {
+            alert("Deu boa");
+        }).catch(() =>{
+            alert("Login inválido!");
+        });
+    }
+
+    function entrar(){
         navigation.reset({
             index:0,
             routes: [{name: "Home"}]
@@ -24,9 +38,16 @@ export default function Login({navigation}){
             </View>
             <View style={styles.content}>
                 <View style={{padding: 30}}>
-                    <TextInputDefault iconName={'email'} textoTransparente={'E-mail'} value={'email'}/>
-                    <TextInputDefault iconName={'lock'} textoTransparente={'Senha'} secureTextEntry={true}/>  
-                    <TouchableOpacity style={styles.buttonLogIn} onPress={() => entrar()}>
+                    
+                    <View style={styles.sectionStyle}>
+                        <Icon.Button name={'email'} backgroundColor="transparent"color="#474747"/>
+                        <TextInput style={styles.input} placeholder={'E-mail'} keyboardType={'email-address'} underlineColorAndroid="transparent" onChangeText={(texto) => setEmail(texto)}>{email}</TextInput>
+                    </View>
+                    <View style={styles.sectionStyle}>
+                        <Icon.Button name={'lock'} backgroundColor="transparent"color="#474747"/>
+                        <TextInput style={styles.input} placeholder={'Senha'} underlineColorAndroid="transparent" onChangeText={(texto) => setSenha(texto)}>{senha}</TextInput>
+                    </View>
+                    <TouchableOpacity style={styles.buttonLogIn} onPress={() => logar()}>
                         <Text style={{color: "#fff", fontSize: 18 }}>ENTRAR</Text>
                     </TouchableOpacity> 
                 </View>
@@ -95,7 +116,33 @@ const styles = StyleSheet.create({
         width: 30,
         height: 23,
         backgroundColor: 'black',
-    }
+    },
+    sectionStyle: {
+        height: 40,
+        borderRadius: 5,
+        margin: 5,
+        justifyContent: 'center',
+        flexDirection: 'row',
+        height: 50,
+        borderBottomWidth: 1,
+        borderColor: '#999999',
+        marginBottom: 30
+      },
+      imageStyle: {
+        padding: 5,
+        margin: 5,
+        height: 25,
+        width: 25,
+        alignItems: 'center'
+      },
+      input:{
+        fontSize: 20,
+        // fontFamily: 'Montserrat-Light',
+        flex: 1,
+        color: '#474747',
+        paddingBottom: 10,
+        paddingLeft: 10,
+      }
   });
 
   
