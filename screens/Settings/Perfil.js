@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View, Text, TextInput } from 'react-native';
-import TextInputDefault from '../../components/TextInputDefault';
 import firebase from '../../src/firebaseConfig';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
 
 export default function Perfil({idUsuario = 1}){
     
