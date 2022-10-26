@@ -9,14 +9,16 @@ export default function Login({navigation}){
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    function logar(){
-        
-        firebase.auth().signInWithEmailAndPassword(email, senha)
-        .then((value) => {
-            alert("Deu boa");
-        }).catch(() =>{
-            alert("Login inválido!");
-        });
+    async function logar(){        
+        await firebase.auth().signInWithEmailAndPassword(email, senha)
+            .then((value) => {
+                alert("sucesso" + value.user.email);
+                entrar();
+                return;
+            }).catch(() =>{
+                alert("Login inválido!");
+                return;
+            });
     }
 
     function entrar(){
@@ -38,14 +40,13 @@ export default function Login({navigation}){
             </View>
             <View style={styles.content}>
                 <View style={{padding: 30}}>
-                    
                     <View style={styles.sectionStyle}>
                         <Icon.Button name={'email'} backgroundColor="transparent"color="#474747"/>
-                        <TextInput style={styles.input} placeholder={'E-mail'} keyboardType={'email-address'} underlineColorAndroid="transparent" onChangeText={(texto) => setEmail(texto)}>{email}</TextInput>
+                        <TextInput style={styles.input} placeholder={'E-mail'} keyboardType={'email-address'} underlineColorAndroid="transparent" onChangeText={(texto) => setEmail(texto)} value={email}/>
                     </View>
                     <View style={styles.sectionStyle}>
                         <Icon.Button name={'lock'} backgroundColor="transparent"color="#474747"/>
-                        <TextInput style={styles.input} placeholder={'Senha'} underlineColorAndroid="transparent" onChangeText={(texto) => setSenha(texto)}>{senha}</TextInput>
+                        <TextInput style={styles.input} placeholder={'Senha'} secureTextEntry={true} underlineColorAndroid="transparent" onChangeText={(texto) => setSenha(texto)} value={senha}/>
                     </View>
                     <TouchableOpacity style={styles.buttonLogIn} onPress={() => logar()}>
                         <Text style={{color: "#fff", fontSize: 18 }}>ENTRAR</Text>
@@ -66,7 +67,7 @@ export default function Login({navigation}){
             </View>
 
             <View style={styles.footer}>
-                <TouchableOpacity style={styles.buttonFooter} onPress={() => criarConta()}>                    
+                <TouchableOpacity style={styles.buttonFooter} onPress={criarConta}>                    
                     <Text style={{color: "#8A2BE2", fontSize: 20, fontWeight: 'bold'}}>CRIAR CONTA</Text>
                 </TouchableOpacity> 
             </View>
