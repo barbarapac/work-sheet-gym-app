@@ -37,12 +37,14 @@ export default function CreateAccount({navigation}){
                 "Senhas não correspondem!",
                 [{ text: "OK", style: "default",},]
             );
+            return;
         } else if(password.length < 6){
             Alert.alert(
                 "Atenção",
                 "Senha deve conter no minimo 6 caracteres!",
                 [{ text: "OK", style: "default",},]
             );
+            return;
         }
         else
         {
