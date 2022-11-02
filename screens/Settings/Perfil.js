@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, TouchableOpacity, View, Text, TextInput } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, TextInput, Alert } from 'react-native';
 import firebase from '../../src/firebaseConfig';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -26,14 +26,50 @@ export default function Perfil({idUsuario = 1}){
       }, []);
         
     async function atualizarPerfil(){        
-       if(senhaInput !== confimarSenhaInput){
+        if (!nomeInput.trim()) {
+            Alert.alert(
+                "Atenção",
+                "Nome obrigatório!",
+                [{ text: "OK", style: "default",},]
+            );
+            return;
+        }
+
+        if (!emailInput.trim()) {
+            Alert.alert(
+                "Atenção",
+                "E-mail obrigatório!",
+                [{ text: "OK", style: "default",},]
+            );
+            return;
+        }
+
+        if(senhaInput.length < 6){
+            Alert.alert(
+                "Atenção",
+                "Senha deve conter no minimo 6 caracteres!",
+                [{ text: "OK", style: "default",},]
+            );
+            return;
+        }
+
+        if(senhaInput !== confimarSenhaInput){
             alert('Senhas não correspondem')
-       }else{
+            return;
+        }else{
             await firebase.database().ref('pefilusuario/' + idUsuario).update({
                 nome: nomeInput,
                 email: emailInput,
                 senha: senhaInput
             });
+
+            setConfirmarSenha('');
+            Alert.alert(
+                "",
+                "Perfil salvo com sucesso!",
+                [{ text: "OK", style: "default",},]
+            );
+            return;
        }
       }
 
