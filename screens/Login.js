@@ -9,16 +9,20 @@ export default function Login({navigation}){
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    async function logar(){        
-        await firebase.auth().signInWithEmailAndPassword(email, senha)
-            .then((value) => {
-                alert("sucesso" + value.user.email);
+    async function logar(){     
+        // essas linhas que estão comentadas, podem ser descomentadas..
+        // porém não esta realizando login. Prof va ajudar.
+        // se quiser tentar corrigir, pode ficar a vontade
+        
+        // await firebase.auth().signInWithEmailAndPassword(email, senha)
+        //     .then((value) => {
+        //         alert("sucesso" + value.user.email);
                 entrar();
-                return;
-            }).catch(() =>{
-                alert("Login inválido!");
-                return;
-            });
+                // return;
+            // }).catch(() =>{
+            //     alert("Login inválido!");
+            //     return;
+            // });
     }
 
     function entrar(){
