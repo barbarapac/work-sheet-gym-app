@@ -32,7 +32,7 @@ export default [
   {
     id: 6,
     name: "Puxada Neutra",
-    image: require('../../images/IconPuxadaNeutra.png'),
+    image: require('../../images/IconPuxadaneutra.png'),
     description: "Série: 4x15 + drop set intervalo: 20 seg",
   },
   {
