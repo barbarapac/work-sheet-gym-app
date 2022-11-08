@@ -14,14 +14,12 @@ export default function Perfil({idUsuario = 1}){
     useEffect(() => {
 
         async function carregaDados(){
-            var user = firebase.auth().currentUser;
+            var user = firebase.auth().currentUser; 
           // Leitura de dados
-          let ref = firebase.database().ref('pefilusuario');
-            ref.orderByChild('email').equalTo(user.email).on("value", function(snapshot) {
-                alert(JSON.stringify(snapshot[Object.keys(snapshot)[0]]))
-            setNome(snapshot[Object.keys(snapshot)[0]].nome)
+          await firebase.database().ref('pefilusuario/' + user.uid).on('value', (snapshot) => { 
+            setNome(snapshot.val().nome)
             setEmail(snapshot.val().email) 
-            setSenha(snapshot.val().senha)
+            // setSenha(snapshot.val().senha) não faz sentido preencher a senha, né
           });
         }
     
