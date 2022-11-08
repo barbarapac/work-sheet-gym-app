@@ -13,7 +13,6 @@ export default function Login({navigation}){
     
          await firebase.auth().signInWithEmailAndPassword(email, senha)
              .then((value) => {
-                //alert("sucesso" + value.user.email);
                 entrar();
                  return;
              }).catch(() =>{
