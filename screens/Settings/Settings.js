@@ -3,6 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View  } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 
+
 export default function Settings({navigation}){
     const meuPerfil = () => {
         navigation.navigate('Perfil');
@@ -12,11 +13,8 @@ export default function Settings({navigation}){
         navigation.navigate('Sobre');
     }
 
-    const sair = (navigation) => {
-        navigation.reset({
-            index:0,
-            routes: [{name: "Login"}]
-        })
+    const login = () => {
+        navigation.navigate('Login');
     }
 
     return(
@@ -42,8 +40,7 @@ export default function Settings({navigation}){
                     </TouchableOpacity>    
                 </View>
                 <View style={styles.container}>
-                    <TouchableOpacity style={styles.content} //onPress={() => sair(navigation)}
-                    >
+                    <TouchableOpacity style={styles.content} onPress={() => login()}>
                         <View style={styles.viewIcon}>
                             <MaterialCommunityIcons name="home-export-outline" color={'#FF9900'} size={35} />
                         </View>
