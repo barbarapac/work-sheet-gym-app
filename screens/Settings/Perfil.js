@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View, Text, TextInput, Alert } from 'react-native';
 import firebase from '../../src/firebaseConfig';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { stringifyValueWithProperty } from 'react-native-web/dist/cjs/exports/StyleSheet/compiler';
 
 export default function Perfil({idUsuario = 1}){
     
@@ -13,10 +14,13 @@ export default function Perfil({idUsuario = 1}){
     useEffect(() => {
 
         async function carregaDados(){
+            var user = firebase.auth().currentUser;
           // Leitura de dados
-          await firebase.database().ref('pefilusuario/' + idUsuario).on('value', (snapshot) => {
-            setNome(snapshot.val().nome)
-            setEmail(snapshot.val().email)
+          let ref = firebase.database().ref('pefilusuario');
+            ref.orderByChild('email').equalTo(user.email).on("value", function(snapshot) {
+                alert(JSON.stringify(snapshot[Object.keys(snapshot)[0]]))
+            setNome(snapshot[Object.keys(snapshot)[0]].nome)
+            setEmail(snapshot.val().email) 
             setSenha(snapshot.val().senha)
           });
         }
