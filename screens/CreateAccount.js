@@ -53,7 +53,7 @@ export default function CreateAccount({navigation}){
                 firebase.database().ref('pefilusuario').child(value.user.uid).set({
                     nome: nome,
                     email: email,
-                    senha: password
+                    //senha: password
                 });                
                 
                 Alert.alert(

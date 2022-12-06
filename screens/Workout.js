@@ -1,9 +1,27 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 import TextDefault from '../components/TextDefault';
 import ListaTreino from '../components/ListaTreino';
 import iconPosteriores from '../images/iconPosteriores.png';
 import iconSuperiores from '../images/iconSuperiores.png';
+import firebase from '../../src/firebaseConfig';
+
+
+export default function Workout(){  
+    const [nomeInput, setNome] = useState('');
+    
+    useEffect(() => { 
+      async function carregaDados(){
+          var user = firebase.auth().currentUser; 
+          
+        await firebase.database().ref('pefilusuario/' + user.uid).on('value', (snapshot) => { 
+          setNome(snapshot.val().nome) 
+        }); 
+      }
+  
+      carregaDados(); 
+    }, []); 
+  }
 
 class Workout extends Component{
     render(){
@@ -12,7 +30,7 @@ class Workout extends Component{
                 <View style={styles.header}>
                     <Image style={styles.fotoPerfil} source={require('../images/fotoPerfil.png')}/>  
                     <View style={{paddingTop: 10, alignItems: 'center'}}>
-                        <TextDefault texto={'Joana Banana'} tamanho={20}/>
+                        <TextDefault texto={nomeInput} tamanho={20}/>
                         <TextDefault texto={'Santa Catarina, SC'} tamanho={17} paddingTop={3}/>
                         <TextDefault texto={'Hipertrofia * Intermediário'} tamanho={18} paddingTop={20}/>
                     </View>
@@ -30,9 +48,7 @@ class Workout extends Component{
             </View>
         );
     }
-}
-
-export default Workout;
+} 
 
 
 const styles = StyleSheet.create({    

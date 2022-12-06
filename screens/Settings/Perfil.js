@@ -12,15 +12,14 @@ export default function Perfil({idUsuario = 1}){
     const [confimarSenhaInput, setConfirmarSenha] = useState('');
 
     useEffect(() => {
-
         async function carregaDados(){
-            var user = firebase.auth().currentUser; 
+          var user = firebase.auth().currentUser; 
           // Leitura de dados
           await firebase.database().ref('pefilusuario/' + user.uid).on('value', (snapshot) => { 
             setNome(snapshot.val().nome)
             setEmail(snapshot.val().email) 
-            // setSenha(snapshot.val().senha) não faz sentido preencher a senha, né
-          });
+            // setSenha(snapshot.val().senha) não fazia sentido preencher a senha
+          }); 
         }
     
         carregaDados();
@@ -59,11 +58,18 @@ export default function Perfil({idUsuario = 1}){
             alert('Senhas não correspondem')
             return;
         }else{
-            await firebase.database().ref('pefilusuario/' + idUsuario).update({
+            var user = firebase.auth().currentUser; 
+
+            await firebase.database().ref('pefilusuario/' + user.uid).update({
                 nome: nomeInput,
                 email: emailInput,
-                senha: senhaInput
+                //senha: senhaInput
             });
+
+            if (senhaInput != "")
+            {  
+                user.updatePassword(senhaInput).then(); 
+            }
 
             setConfirmarSenha('');
             Alert.alert(
@@ -73,7 +79,7 @@ export default function Perfil({idUsuario = 1}){
             );
             return;
        }
-      }
+    }
 
     return(
         <View style={styles.container}>
