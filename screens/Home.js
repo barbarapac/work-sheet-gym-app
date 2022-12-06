@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; 
 import Avaliation from '../screens/Avaliations/AvaliationNavigator';
 import Settings from '../screens/Settings/SettingsNavigator';
 import Workout from '../screens/Workouts/WorkoutNavigator';
@@ -7,9 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
-
-//onPress={() => navigation.jumpTo('Profile', { owner: 'Michaś' })}
-
+  
 function MyTabs() {
   return (
     <Tab.Navigator
@@ -76,6 +74,6 @@ class Home extends Component{
             </NavigationContainer>
         );
     }
-}
+} 
 
 export default Home;
